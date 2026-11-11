@@ -1,0 +1,7 @@
+parameters:
+    level: max
+    paths:
+        - src/
+        - tests/
+    # the public API checks the types at runtime too (the callers are not always statically analysed)
+    treatPhpDocTypesAsCertain: false

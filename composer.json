@@ -1,0 +1,72 @@
+{
+    "name": "traffman/sdk",
+    "description": "Transport-agnostic PHP SDK for the Traffman API (content exchange network).",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "traffman",
+        "sdk",
+        "api",
+        "client",
+        "content exchange",
+        "psr-18",
+        "http"
+    ],
+    "homepage": "https://traffman.com",
+    "authors": [
+        {
+            "name": "modeewine"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "nyholm/psr7": "^1.8",
+        "php-http/discovery": "^1.20",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.1",
+        "psr/http-message": "^1.1 || ^2.0",
+        "psr/simple-cache": "^2.0 || ^3.0",
+        "squizlabs/php_codesniffer": "^3.13"
+    },
+    "suggest": {
+        "ext-curl": "To use the built-in CurlTransport (the default when no PSR-18 client is available).",
+        "ext-mbstring": "To use ContentNormalizer for preparing the pushed content.",
+        "psr/http-client-implementation": "To use Psr18Transport with any PSR-18 HTTP client (Guzzle, Symfony HttpClient, ...).",
+        "php-http/discovery": "To find the installed PSR-18 client and PSR-17 factories automatically.",
+        "psr/simple-cache": "To use Psr16Cache as the storage of CacheMiddleware."
+    },
+    "autoload": {
+        "psr-4": {
+            "Traffman\\Sdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Traffman\\Sdk\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --memory-limit=512M",
+        "lint": "phpcs",
+        "lint-fix": "phpcbf",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

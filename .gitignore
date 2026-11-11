@@ -1,0 +1,17 @@
+.DS_Store
+.bash_history
+/.idea/
+/.vscode/
+/nbproject/
+
+/.composer/
+/composer.lock
+/vendor/
+
+/.phpcs-cache
+/phpcs.xml
+/phpstan.neon
+
+/phpunit.xml
+/.phpunit.cache/
+/coverage/

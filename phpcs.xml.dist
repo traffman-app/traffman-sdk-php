@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+    name="Traffman SDK Coding Standards"
+>
+    <arg name="basepath" value="."/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
+    <arg name="encoding" value="utf-8"/>
+    <arg name="extensions" value="php"/>
+    <arg name="tab-width" value="4"/>
+    <arg name="report-width" value="120"/>
+
+    <rule ref="PSR12"/>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="120"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.PHP.RequireStrictTypes"/>
+
+    <file>src/</file>
+    <file>tests/</file>
+    <file>examples/</file>
+</ruleset>

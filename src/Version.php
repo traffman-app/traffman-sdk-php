@@ -6,7 +6,7 @@ namespace Traffman\Sdk;
 
 final class Version
 {
-    public const NAME = 'traffman/sdk';
+    public const NAME = 'traffman/sdk-php';
     public const VERSION = '1.0.0';
 
     private function __construct()

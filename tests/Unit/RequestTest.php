@@ -31,7 +31,7 @@ final class RequestTest extends TestCase
         $config = new Config('http://localhost:8080/', 'v2');
 
         self::assertSame('http://localhost:8080/v2/clients/iam', $config->buildUrl('/clients/iam'));
-        self::assertStringStartsWith('traffman/sdk/', $config->getUserAgent());
+        self::assertStringStartsWith('traffman/sdk-php/', $config->getUserAgent());
 
         $this->expectException(InvalidArgumentException::class);
         new Config('ftp://example.com');

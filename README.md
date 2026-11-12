@@ -16,7 +16,7 @@ The package is not on Packagist yet. Install it from the GitHub repository:
 
 ```bash
 composer config repositories.traffman-sdk vcs https://github.com/traffman-app/traffman-sdk-php
-composer require traffman/sdk:dev-main
+composer require traffman/sdk-php:dev-main
 ```
 
 This adds the repository to your `composer.json`:
@@ -30,7 +30,7 @@ This adds the repository to your `composer.json`:
         }
     ],
     "require": {
-        "traffman/sdk": "dev-main"
+        "traffman/sdk-php": "dev-main"
     }
 }
 ```

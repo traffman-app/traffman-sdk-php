@@ -1,5 +1,5 @@
 {
-    "name": "traffman/sdk",
+    "name": "traffman/sdk-php",
     "description": "Transport-agnostic PHP SDK for the Traffman API (content exchange network).",
     "type": "library",
     "license": "MIT",

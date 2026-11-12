@@ -13,6 +13,10 @@
         "http"
     ],
     "homepage": "https://traffman.com",
+    "support": {
+        "issues": "https://github.com/traffman-app/traffman-sdk-php/issues",
+        "source": "https://github.com/traffman-app/traffman-sdk-php"
+    },
     "authors": [
         {
             "name": "modeewine"

@@ -19,7 +19,13 @@
     },
     "authors": [
         {
-            "name": "modeewine"
+            "name": "Traffman",
+            "homepage": "https://traffman.com"
+        },
+        {
+            "name": "modeewine",
+            "homepage": "https://modeewine.com",
+            "role": "Developer"
         }
     ],
     "require": {

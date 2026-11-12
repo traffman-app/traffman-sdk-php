@@ -12,30 +12,9 @@ PHP client for the [Traffman](https://traffman.com) API, the content exchange ne
 
 ## Installation
 
-The package is not on Packagist yet. Install it from the GitHub repository:
-
 ```bash
-composer config repositories.traffman-sdk vcs https://github.com/traffman-app/traffman-sdk-php
-composer require traffman/sdk-php:dev-main
+composer require traffman/sdk-php
 ```
-
-This adds the repository to your `composer.json`:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/traffman-app/traffman-sdk-php"
-        }
-    ],
-    "require": {
-        "traffman/sdk-php": "dev-main"
-    }
-}
-```
-
-`dev-main` follows the `main` branch; `composer.lock` pins the installed commit.
 
 ## Quick start
 
@@ -359,6 +338,11 @@ composer check   # phpcs + phpstan + phpunit
 
 The integration tests (`tests/Integration`) run against a real API only when `TRAFFMAN_API_URL` is set.
 They are read-only.
+
+## Support
+
+Report bugs and request features in [GitHub issues](https://github.com/traffman-app/traffman-sdk-php/issues).
+For anything else, [contact Traffman](https://traffman.com/contact).
 
 ## License
 

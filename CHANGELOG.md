@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 – unreleased
+## 1.0.0 – 2026-11-12
 
 - Client: confirmation, info (`iam`), dashboard, settings update.
 - Content: push (with batching), pushed external IDs, statistics, targeted content.

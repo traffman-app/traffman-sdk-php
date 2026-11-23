@@ -132,6 +132,15 @@ $traffman->client()->confirm('https://example.com/traffman/confirm'); // starts 
 $traffman->client()->iam(ClientType::WORDPRESS);                      // + required/preferable plugin version
 $traffman->client()->dashboard();
 
+// state of the content block on the site
+$contentBlock = $traffman->client()->iam()->contentBlock;
+
+if ($contentBlock->lastRequestedAt === null) {
+    // not placed yet: the block has never requested content
+} elseif ($contentBlock->idle) {
+    // stopped working: no content requests for the last 72 hours
+}
+
 // null fields are left unchanged, an empty list clears a setting
 $traffman->client()->updateSettings(new SettingsUpdate(
     contentLanguage: ContentLanguageMode::EXACT,
@@ -196,7 +205,12 @@ $dashboard->raw['someNewField'] ?? null; // a field added to the API after the S
 Create the models with `fromArray()`, e.g. as the return value of a mocked resource interface in your tests:
 
 ```php
-$iam = ClientIam::fromArray(['id' => '...', 'subscription' => [/* ... */], /* ... */]);
+$iam = ClientIam::fromArray([
+    'id' => '...',
+    'subscription' => [/* ... */],
+    'contentBlock' => ['idle' => false, 'lastRequestedAt' => null],
+    /* ... */
+]);
 ```
 
 The model constructors are `@internal`: a minor version may add arguments to them.

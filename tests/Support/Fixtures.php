@@ -24,6 +24,7 @@ final class Fixtures
                 'paymentFailed' => false,
                 'resumable' => false,
             ],
+            'contentBlock' => ['idle' => false, 'lastRequestedAt' => '2026-11-21T10:00:00+00:00'],
             'createdAt' => '2025-01-15T10:00:00+00:00',
             'version' => ['required' => '1.0.0', 'preferable' => '1.2.0'],
         ];

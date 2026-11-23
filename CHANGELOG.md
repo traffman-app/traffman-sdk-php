@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 – 2026-11-23
+
+- Client info (`iam`): the content block state on the site, `ClientIam::$contentBlock` (`ContentBlock` model with
+  `idle` and `lastRequestedAt`). It tells whether the block is not placed yet, works or has stopped working.
+
 ## 1.0.0 – 2026-11-12
 
 - Client: confirmation, info (`iam`), dashboard, settings update.

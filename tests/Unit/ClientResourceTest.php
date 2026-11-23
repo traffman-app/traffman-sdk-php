@@ -40,6 +40,8 @@ final class ClientResourceTest extends TestCase
         self::assertSame('My blog', $iam->description);
         self::assertSame('pro', $iam->subscription->type);
         self::assertSame('month', $iam->subscription->renewal?->interval);
+        self::assertFalse($iam->contentBlock->idle);
+        self::assertSame('2026-11-21T10:00:00+00:00', $iam->contentBlock->lastRequestedAt?->format(DATE_ATOM));
         self::assertSame('2025-01-15', $iam->createdAt->format('Y-m-d'));
         self::assertSame('1.2.0', $iam->version?->preferable);
     }

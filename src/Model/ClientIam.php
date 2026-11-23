@@ -20,6 +20,8 @@ final class ClientIam
         public readonly string $id,
         public readonly ?string $description,
         public readonly Subscription $subscription,
+        /** State of the content block on the site. */
+        public readonly ContentBlock $contentBlock,
         public readonly DateTimeImmutable $createdAt,
         /** Set when the client type was passed to the request. */
         public readonly ?ClientVersion $version,
@@ -45,6 +47,7 @@ final class ClientIam
             $data->string('id'),
             $data->nullableString('description'),
             Subscription::fromData($data->object('subscription')),
+            ContentBlock::fromData($data->object('contentBlock')),
             $data->dateTime('createdAt'),
             ($version = $data->nullableObject('version')) !== null ? ClientVersion::fromData($version) : null,
             $data->all(),

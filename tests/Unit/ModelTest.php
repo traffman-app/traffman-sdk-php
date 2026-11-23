@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Traffman\Sdk\Tests\Unit;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use Traffman\Sdk\Exception\ValidationException;
 use Traffman\Sdk\Model\Chart;
 use Traffman\Sdk\Model\ClientIam;
@@ -29,6 +30,39 @@ final class ModelTest extends TestCase
         self::assertSame('pro', $iam->subscription->raw['type']);
         self::assertNotNull($iam->version);
         self::assertSame(['required' => '1.0.0', 'preferable' => '1.2.0'], $iam->version->raw);
+    }
+
+    /**
+     * @return iterable<string, array{array<string, mixed>, bool, ?string}>
+     */
+    public static function contentBlockStates(): iterable
+    {
+        yield 'not placed yet' => [['idle' => false, 'lastRequestedAt' => null], false, null];
+        yield 'works' => [
+            ['idle' => false, 'lastRequestedAt' => '2026-11-21T10:00:00+00:00'],
+            false,
+            '2026-11-21T10:00:00+00:00',
+        ];
+        yield 'stopped working' => [
+            ['idle' => true, 'lastRequestedAt' => '2026-11-17T08:30:00+00:00'],
+            true,
+            '2026-11-17T08:30:00+00:00',
+        ];
+    }
+
+    /**
+     * @param array<string, mixed> $contentBlock
+     */
+    #[DataProvider('contentBlockStates')]
+    public function testContentBlockStates(array $contentBlock, bool $idle, ?string $lastRequestedAt): void
+    {
+        $data = array_replace(Fixtures::iam(), ['contentBlock' => $contentBlock]);
+
+        $iam = ClientIam::fromArray($data);
+
+        self::assertSame($idle, $iam->contentBlock->idle);
+        self::assertSame($lastRequestedAt, $iam->contentBlock->lastRequestedAt?->format(DATE_ATOM));
+        self::assertSame($contentBlock, $iam->contentBlock->raw);
     }
 
     public function testRawOfTheListItems(): void
